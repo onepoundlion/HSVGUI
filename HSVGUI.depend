@@ -1,0 +1,7 @@
+# depslib dependency file v1.0
+1552026721 source:c:\cv\guihsv\hsvgui\main.cpp
+	<iostream>
+	<stdio.h>
+	<opencv2/opencv.hpp>
+	<opencv2/core.hpp>
+
