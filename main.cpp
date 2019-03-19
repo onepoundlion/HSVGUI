@@ -14,6 +14,9 @@ void HSVGUI( int event, int x, int y, int f, void *param){
         if(!cap.isOpened())
             std::cout<<"check camera";
         namedWindow("HSV GUI", WINDOW_AUTOSIZE);
+        // Change exposure accordingly
+        int exposure=-7;
+        cap.set(CV_CAP_PROP_EXPOSURE, exposure);
         cap>>src;
         Mat image=src.clone();
         Mat HSV;
@@ -51,6 +54,7 @@ void HSVGUI( int event, int x, int y, int f, void *param){
         namedWindow("HSV GUI", WINDOW_AUTOSIZE);
         cap>>src;
         cv::imshow( "HSV GUI", src );
+
     }
 }
 
@@ -66,7 +70,9 @@ int main()
     for (;;) {
         // cap>>src;
         setMouseCallback( "HSV GUI", HSVGUI);
-        waitKey();
+        char c = cvWaitKey(50);
+        if (c == 27)
+            break;
 	}
 	return 0;
 }
